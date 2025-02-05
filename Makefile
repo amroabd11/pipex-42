@@ -2,7 +2,7 @@ NAME=pipex
 CC=cc
 CFLAGS= -Wall -Wextra -Werror
 SRC= error_hand.c pipex.c\
-	libft/ft_strncmp.c libft/ft_split.c libft/ft_strjoin.c libft/ft_strlen.c libft/ft_strdup.c libft/ft_strlcpy.c libft/ft_putstr_fd.c
+	ft_strncmp.c ft_split.c ft_strjoin.c ft_strlen.c ft_strdup.c ft_strlcpy.c ft_putstr_fd.c
 OBJ=$(SRC:.c=.o)
 
 all: $(NAME)
