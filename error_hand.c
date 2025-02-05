@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:23:44 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/04 11:23:10 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/05 16:20:03 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exit_error()
 {
-	write(1, "error : ./pipex file1 cmd1 cmd2 file2\n", 38);
+	write(2, "error : ./pipex file1 cmd1 cmd2 file2\n", 38);
 	exit(1);
 }
 
