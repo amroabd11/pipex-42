@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   check_if.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 17:47:15 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/07 11:45:16 by aamraouy         ###   ########.fr       */
+/*   Created: 2025/02/12 13:24:51 by aamraouy          #+#    #+#             */
+/*   Updated: 2025/02/13 08:15:33 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-size_t	ft_strlen(const char *str)
+int	file_or_cmd(char *cmd)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	if (ft_strchr(cmd, '/'))
+	{
+		if (access(cmd, X_OK) == 0)
+			return (1);
+		ft_putstr_fd(cmd, 2);
+		ft_putstr_fd(": No such file or directory\n", 2);
+		exit(127);
+	}
+	return (0);
 }

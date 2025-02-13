@@ -6,7 +6,7 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:51:41 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/05 21:19:02 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/12 13:16:52 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static char	*join(char *alloc, const char *s1, const char *s2)
 		j++;
 	}
 	alloc[i + j] = '\0';
+	free((char *)s1);
 	return (alloc);
 }
 
@@ -37,11 +38,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*pt;
 	int		space;
-	int		i;
-	int		ind;
 
-	i = 0;
-	ind = 0;
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1)

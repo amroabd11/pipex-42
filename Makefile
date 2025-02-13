@@ -1,7 +1,7 @@
 NAME=pipex
 CC=cc
 CFLAGS= -Wall -Wextra -Werror
-SRC= error_hand.c pipex.c\
+SRC= error_hand.c pipex.c check_if.c ft_strchr.c\
 	ft_strncmp.c ft_split.c ft_strjoin.c ft_strlen.c ft_strdup.c ft_strlcpy.c ft_putstr_fd.c
 OBJ=$(SRC:.c=.o)
 

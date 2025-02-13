@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 17:47:15 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/07 11:45:16 by aamraouy         ###   ########.fr       */
+/*   Created: 2024/10/23 17:44:04 by aamraouy          #+#    #+#             */
+/*   Updated: 2025/02/12 13:45:23 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_strchr(char *s, int c)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	while (*s != '\0' && *s != (char)c)
+		s++;
+	if (*s == (char)c)
+		return (1);
+	return (0);
 }

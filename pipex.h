@@ -6,21 +6,23 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 09:12:36 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/05 21:21:16 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/12 14:46:14 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 #define PIPEX_H
 
-#include <errno.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdlib.h>
+# include <errno.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
 
 void	exit_error();
-int 	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strchr(char *s, int c);
+int		file_or_cmd(char *cmd);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	free_split(char **split);
 size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
