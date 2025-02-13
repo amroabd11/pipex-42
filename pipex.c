@@ -6,23 +6,21 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 09:40:35 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/13 08:23:45 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:40:06 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	*get_abs_path(char *cmd1, char **env)
+char	*get_abs_path(char **cmd, char **env)
 {
 	char	**env_paths;
 	char	*abs_path;
-	int		file_cmd;
 	int		i;
 
 	i = 0;
-	file_cmd = file_or_cmd(cmd1);
-	if (file_cmd)
-		return (ft_strdup(cmd1));
+	if (file_or_cmd(cmd))
+		return (ft_strdup(cmd[0]));
 	while (env[i] && (ft_strncmp(env[i], "PATH=", 5) != 0))
 		i++;
 	env_paths = ft_split(env[i] + 5, ':');
@@ -30,7 +28,7 @@ char	*get_abs_path(char *cmd1, char **env)
 	while (env_paths[i])
 	{
 		abs_path = ft_strjoin(env_paths[i], "/");
-		abs_path = ft_strjoin(abs_path, cmd1);
+		abs_path = ft_strjoin(abs_path, cmd[0]);
 		if (access(abs_path, X_OK) == 0)
 			return (abs_path);
 		free(abs_path);
@@ -48,7 +46,7 @@ void	run_command(char *v, char **env)
 	args = ft_split(v, ' ');
 	if (!args)
 		exit(EXIT_FAILURE);
-	absolute_path = get_abs_path(args[0], env);
+	absolute_path = get_abs_path(args, env);
 	if (!absolute_path)
 	{
 		ft_putstr_fd(args[0], 2);
@@ -96,7 +94,7 @@ void	parent_process(int *pipe_fd, char **argv, char **env)
 {
 	int	fd;
 
-	fd = open(argv[4], O_CREAT | O_RDWR | O_TRUNC , 0644);
+	fd = open(argv[4], O_CREAT | O_RDWR | O_TRUNC, 0644);
 	if (fd == -1)
 	{
 		ft_putstr_fd(argv[4], 2);
@@ -122,7 +120,7 @@ void	parent_process(int *pipe_fd, char **argv, char **env)
 
 int	main(int argc, char **argv, char **env)
 {
-	int	pipe_fd[2];
+	int		pipe_fd[2];
 	pid_t	pr_id;
 	int		status;
 

@@ -6,13 +6,13 @@
 /*   By: aamraouy <aamraouy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 17:23:44 by aamraouy          #+#    #+#             */
-/*   Updated: 2025/02/05 16:20:03 by aamraouy         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:39:22 by aamraouy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	exit_error()
+void	exit_error(void)
 {
 	write(2, "error : ./pipex file1 cmd1 cmd2 file2\n", 38);
 	exit(1);
